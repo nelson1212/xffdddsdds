@@ -20,10 +20,10 @@ class PollsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Poll->create();
 			if ($this->Poll->save($this->data)) {
-				$this->Session->setFlash(__('The poll has been saved', true));
+				$this->Session->setFlash(__('La encuesta fue guardada', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The poll could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('La encuesta no fue guardada, intenta de nuevo.', true));
 			}
 		}
 		$users = $this->Poll->User->find('list');

@@ -1,16 +1,18 @@
 <div class="polls index">
-	<h2><?php __('Polls');?></h2>
+	<h2><?php __('Encuestas');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('user_id');?></th>
-			<th><?php echo $this->Paginator->sort('question');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+		
+			<th><?php //echo $this->Paginator->sort('id');?></th>
+			<th><?php echo $this->Paginator->sort("Creador", 'user_id');?></th>
+			<th><?php echo $this->Paginator->sort("Pregunta",'question');?></th>
+			<th><?php echo $this->Paginator->sort("Fecha creación",'created');?></th>
+			<th><?php //echo $this->Paginator->sort('modified');?></th>
+			<th class="actions"><?php __('Acciones');?></th>
 	</tr>
 	<?php
 	$i = 0;
+	//debug($polls);
 	foreach ($polls as $poll):
 		$class = null;
 		if ($i++ % 2 == 0) {
@@ -18,17 +20,18 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $poll['Poll']['id']; ?>&nbsp;</td>
+		<td><?php //echo $poll['Poll']['id']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($poll['User']['id'], array('controller' => 'users', 'action' => 'view', $poll['User']['id'])); ?>
+			<?php echo $this->Html->link($poll['User']['email'], array('controller' => 'users', 'action' => 'view', $poll['User']['id'])); ?>
 		</td>
 		<td><?php echo $poll['Poll']['question']; ?>&nbsp;</td>
 		<td><?php echo $poll['Poll']['created']; ?>&nbsp;</td>
-		<td><?php echo $poll['Poll']['modified']; ?>&nbsp;</td>
+		<td><?php //echo $poll['Poll']['modified']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $poll['Poll']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $poll['Poll']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $poll['Poll']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $poll['Poll']['id'])); ?>
+			<?php echo $this->Html->link(__('Opciones', true), array('action' => 'view', $poll['Poll']['id'])); ?>
+			<?php echo $this->Html->link(__('Ver', true), array('action' => 'view', $poll['Poll']['id'])); ?>
+			<?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $poll['Poll']['id'])); ?>
+			<?php echo $this->Html->link(__('Borrar', true), array('action' => 'delete', $poll['Poll']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $poll['Poll']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -46,14 +49,4 @@
  |
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Poll', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Questions', true), array('controller' => 'questions', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Question', true), array('controller' => 'questions', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
