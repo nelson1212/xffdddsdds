@@ -6,6 +6,7 @@ class NoticiasController extends AppController {
 	private $nombreFoto="";
 	
 	function index() {
+	   $this->layout="index";
 		$this->Noticia->recursive = 0;
 		$this->set('noticias', $this->paginate());
 	}
