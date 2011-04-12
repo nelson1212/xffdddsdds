@@ -18,15 +18,17 @@ class CommentsController extends AppController {
 
 	function add() {
 		if (!empty($this->data)) {
+			
+			//debug($this->data); exit;
 			$this->Comment->create();
 			if ($this->Comment->save($this->data)) {
-				$this->Session->setFlash(__('The comment has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('Tu comentario fue agregado', true));
+				$this->redirect(array("controller"=>"noticias",'action' => 'leerMas', $this->data['Comment']["noticia_id"]));
 			} else {
 				$this->Session->setFlash(__('The comment could not be saved. Please, try again.', true));
 			}
 		}
-		$news = $this->Comment->New->find('list');
+		$news = $this->Comment->Noticia->find('list');
 		$users = $this->Comment->User->find('list');
 		$albums = $this->Comment->Album->find('list');
 		$photos = $this->Comment->Photo->find('list');
@@ -49,7 +51,7 @@ class CommentsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Comment->read(null, $id);
 		}
-		$news = $this->Comment->New->find('list');
+		$news = $this->Comment->Noticia->find('list');
 		$users = $this->Comment->User->find('list');
 		$albums = $this->Comment->Album->find('list');
 		$photos = $this->Comment->Photo->find('list');

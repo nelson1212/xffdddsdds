@@ -66,7 +66,9 @@
           <h2 class="star"><span>Menu</span> principal</h2><hr>
           <div class="clr"></div>
           <ul class="sb_menu">
-            <li class="active"><a href="#">Inicio</a></li>
+          	
+            <li class="active"><?php echo $this->Html->link("Inicio", array('controller' => 'noticias','action' => 'index')); ?></li>
+					
             <li><a href="#">Historia</a></li>
             <li><a href="#">Quienes somos</a></li>
             <li><a href="#">Visión/a></li>

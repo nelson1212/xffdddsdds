@@ -20,6 +20,15 @@ class Noticia extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			
+			'title' => array(
+				'rule' => array('maxLength', 150), 
+				'message' => 'El titulo debe ser maximo de 150 caracteres',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
 		),
 		'content' => array(
 			'notempty' => array(
@@ -39,10 +48,28 @@ class Noticia extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+		
+		'resumen' => array(
+				'rule' => array('minLength', 100), 
+				'message' => 'El resumen debe contener minimo 100 caracteres',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
 			
+		   'resumen' => array(
+				'rule' => array('maxLength', 500), 
+				'message' => 'El resumen debe contener como maximo 500 caracteres',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+				
 		'image' => array(
         	'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')),  
-        	'allowEmpty' => false, 'required' => false,
+        	'allowEmpty' => true, 'required' => false,
         	'message' => 'Debes ingresar una imagen, solo se permiten imagenes .gif, .jpeg, .png, .jpg'
     	), 
 	);

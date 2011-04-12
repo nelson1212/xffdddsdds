@@ -7,7 +7,8 @@ class NoticiasController extends AppController {
 	
 	function index() {
 	   $this->layout="index";
-		$this->Noticia->recursive = 0;
+		$this->Noticia->recursive = 1;
+		$this->paginate=array('order' => array('Noticia.id' => 'desc'),"limit"=>10);
 		$this->set('noticias', $this->paginate());
 	}
 
@@ -20,7 +21,7 @@ class NoticiasController extends AppController {
 		$this->set('noticia', $this->Noticia->read(null, $id));
 	}
 
-	function add() {
+	function admin_add() {
 		$userId=$this->Session->read("Auth.User.id");
 		
 		if (!empty($this->data)) {
@@ -31,29 +32,54 @@ class NoticiasController extends AppController {
 				unset($this->data["Noticia"]["image"]);
 			}
 
-			if ($foto["error"]==0 && $this->uploadPicture($foto)==true){
+			if ($foto["error"]==0 && $this->uploadPicture($foto)==true)
+			{
 				$directorio = WWW_ROOT."img/";
 			    $directorio = str_replace("\\", "/", $directorio);
-				$ruta="img/noticias/".$this->nombreFoto; 
-				list($width, $height, $type, $attr) = getimagesize($ruta);
-				if($height>$width) {
-						$this->ImageUploadAndResize->resize_image($ruta, 120, 190, $scale = true, $relscale = false, $quality = 100);
-				}else {
-						$this->ImageUploadAndResize->resize_image($ruta, 190, 120, $scale = true, $relscale = false, $quality = 100);
-				}
-					
+				$ruta=$directorio."noticias/"; 
+				$imagen=$directorio."noticias/".$this->nombreFoto; 
 				
+				list($width, $height, $type, $attr) = getimagesize($imagen);
+				
+				/*echo "Imagen ".$imagen; 
+				echo "<br>";
+				echo "Ruta ".$ruta; 
+				exit;
+				 * */
+				 
+				$nombre="";
+				if($height>$width) {
+						$this->ImageUploadAndResize->resize_image($imagen, 120, 190, $scale = true, $relscale = false, $quality = 100);
+						echo $nombre=$this->ImageUploadAndResize->make_thumb($imagen,$ruta,120, 190);
+				}else {
+						$this->ImageUploadAndResize->resize_image($imagen, 190, 120, $scale = true, $relscale = false, $quality = 100);
+						echo $nombre=$this->ImageUploadAndResize->make_thumb($imagen,$ruta,120, 190);
+				}
 				$this->data["Noticia"]["image"]=$this->nombreFoto;
-			}else if($this->uploadPicture($foto)==false) {
+				$this->data["Noticia"]["thumb"]=$nombre;
+				
+				//debug($this->data);
+				
+			}else if($this->uploadPicture($foto)==false) 
+			{
 				$this->data["Noticia"]["image"]="";
 				$this->Session->setFlash(__('Error al intentar copiar la imagen.', true));
 			}
 			
-
+			
+			if ($foto["error"]==4)
+			{
+				unset($this->data["Noticia"]["image"]);
+				$this->data["Noticia"]["image"]="";
+			}
+			//exit;
+			//debug($this->data);
 			$this->Noticia->create();
+			
 			if ($this->Noticia->save($this->data)) {
 			
 				$this->Session->setFlash(__('La noticia fue guardada', true));
+				//$this->Noticia->id=0;
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('La noticia no pudo ser guardada, intenta de nuevo.', true));
@@ -141,7 +167,7 @@ class NoticiasController extends AppController {
 		$this->set('noticia', $this->Noticia->read(null, $id));
 	}
 
-	function admin_add() {
+	function add() {
 		if (!empty($this->data)) {
 			$this->Noticia->create();
 			if ($this->Noticia->save($this->data)) {
@@ -229,29 +255,15 @@ class NoticiasController extends AppController {
 	}
 
 
-	function resizeImage($originalImage,$toWidth,$toHeight){
-	    
-	    // Get the original geometry and calculate scales
-	    list($width, $height) = getimagesize($originalImage);
-	    $xscale=$width/$toWidth;
-	    $yscale=$height/$toHeight;
-	    
-	    // Recalculate new size with default ratio
-	    if ($yscale>$xscale){
-	        $new_width = round($width * (1/$yscale));
-	        $new_height = round($height * (1/$yscale));
-	    }
-	    else {
-	        $new_width = round($width * (1/$xscale));
-	        $new_height = round($height * (1/$xscale));
-	    }
-	
-	    // Resize the original image
-	    $imageResized = imagecreatetruecolor($new_width, $new_height);
-	    $imageTmp     = imagecreatefromjpeg ($originalImage);
-	    imagecopyresampled($imageResized, $imageTmp, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-	
-	    return $imageResized;
+	function leerMas($id=null)
+	{
+		$this->layout="index";
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid noticia', true));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Noticia->recursive=1;
+		$this->set('noticia', $this->Noticia->read(null, $id));
 	}
 }
 ?>

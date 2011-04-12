@@ -1,27 +1,16 @@
 <div class="noticias form">
-<?php echo $this->Form->create('Noticia');?>
+<?php echo $this->Form->create('Noticia', array("type"=>"file"));?>
 	<fieldset>
- 		<legend><?php __('Admin Add Noticia'); ?></legend>
+ 		<legend><?php __('Agregar nueva noticia'); ?></legend>
 	<?php
-		echo $this->Form->input('category_id');
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('title');
-		echo $this->Form->input('content');
-		echo $this->Form->input('image');
+		echo $this->Form->input('category_id', array("label"=>"Categoria"));
+		echo $this->Form->input('user_id',  array('value'=>$userId, "type"=>"hidden"));
+		echo $this->Form->input('title', array("maxlength"=>"150","id"=>"titulo", "label"=>"Titulo"));
+		echo $this->Form->input('resumen' , array("maxlength"=>"500","label"=>"Resumen", "id"=>"resumen"));
+		echo $this->Form->input('content' , array("label"=>"Contenido"));
+		echo $this->Form->input('image' , array("type"=>"file","label"=>"Imagen (opcional)"));
+		echo $this->Form->input('thumb' , array("type"=>"hidden"));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Noticias', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users', true), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comments', true), array('controller' => 'comments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comment', true), array('controller' => 'comments', 'action' => 'add')); ?> </li>
-	</ul>
+<?php echo $this->Form->end(__('Guardar', true));?>
 </div>

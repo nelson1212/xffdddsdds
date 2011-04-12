@@ -7,11 +7,18 @@
 		<div class="article">
 			<h2><span><?php echo $noticia['Noticia']['title']; ?></span></h2>
 			<p class="post-data">Publicada: <span class="date"><?php echo $noticia['Noticia']['created']; ?></span> &nbsp;|&nbsp; Por: <?php echo $noticia['User']['email']; ?></p>
-			
             <div class="clr"></div>
-			<div align="justify"><p><?php echo substr($noticia['Noticia']['content'],0, 1000); ?></p></div>
-					
-	       <p class="spec"><a href="#" class="com fr">Comments (3)</a> <a href="#" class="rm fl">Read more</a></p>
+            
+			<div align="justify">
+				<div>
+					<?php if($noticia['Noticia']['thumb']) {
+						echo $html->image("/img/noticias/".$noticia['Noticia']['thumb']);
+					} ?>
+				</div>
+			
+			<p><?php echo $noticia['Noticia']['resumen']; ?></p></div>	
+	        <p class="spec"><a href="#" class="com fr">Comentarios (3)</a>
+	        <?php echo $this->Html->link("Leer mas", array('controller' => 'noticias','action' => 'leerMas', $noticia['Noticia']['id'])); ?> 
            <div class="clr"></div>
 	</div>
 

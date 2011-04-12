@@ -7,6 +7,10 @@ body {
 	font:normal 12px/1.8em Arial, Helvetica, sans-serif;
 	background:#ffffff url(../img/images1/main_bg.gif) repeat-x top;
 }
+
+.noticia{
+text-align: justify;
+}
 html, .main {
 	padding:0;
 	margin:0;
@@ -384,3 +388,79 @@ ol li .send {
 	font-size:0;
 	line-height:0;
 }
+
+.respuesta { 
+	border-top-color: #e7e7e7;
+	border-top-style: solid;
+	border-top-width: 1px;
+	margin-bottom: 24px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 24px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	position: relative;
+ }
+ 
+ .respuesta input { 
+	margin-bottom: 9px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	width: 98%;
+ }
+ 
+ .respuesta input[type="text"], textarea { 
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: #f9f9f9;
+	background-image: none;
+	background-origin: padding-box;
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	background-size: auto;
+	border-bottom-color: #cccccc;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #cccccc;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: #cccccc;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: #cccccc;
+	border-top-style: solid;
+	border-top-width: 1px;
+	box-shadow: inset 1px 1px 1px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 2px;
+ }
+
+.respuesta textarea { 
+width: 98%;
+ }
+ 
+ .respuesta input[type="submit"]{ 
+ margin-top:6px;
+ width: 28%;
+ }
+ 
+.respuesta checkbox {
+	width: auto;
+}
+
+.respuesta  input[type="checkbox"]{ 
+    color: #333333;
+    font-size: 16px;
+    line-height: 24px;
+    width: 3%;
+    margin-top:2px;
+}
+
+.comentarios hr { 
+	margin;2px;
+	color: gray;
+	size:1px;
+ }

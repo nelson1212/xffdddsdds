@@ -174,6 +174,7 @@ class ImageUploadAndResizeComponent extends Object
 	
 	function make_thumb($img_name,$ruta,$new_w, $new_h)
         {
+        	$hoy=getdate();
         	$filename=md5(sha1($hoy["seconds"].rand(1,100000)));	
             $ext=$this->getExtension($img_name);
 			

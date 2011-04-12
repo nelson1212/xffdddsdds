@@ -38,8 +38,9 @@
 		echo $this->Html->css('jquery.fileupload-ui.css');
 		echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js');
 		echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js');*/
-		
-		echo $this->Html->script('box.js');
+		echo $this->Html->script('contador.js');
+		echo $this->Html->script('jquery.jqEasyCharCounter.min.js');
+		echo $this->Html->script('textLimit.js');
 		echo $scripts_for_layout;
 	?>
 </head>
