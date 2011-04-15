@@ -3,8 +3,8 @@ body {
 	margin:0;
 	padding:0;
 	width:100%;
-	color:#959595;
-	font:normal 12px/1.8em Arial, Helvetica, sans-serif;
+	
+	font:normal 12px/1.8em Times, Helvetica, sans-serif;
 	background:#ffffff url(../img/images1/main_bg.gif) repeat-x top;
 }
 
@@ -130,6 +130,7 @@ a.rm, a.com {
 	padding:20px 10px;
 	margin:0;
 	background:#fbf9f9;
+
 }
 .content_resize {
 	margin:0 auto;
@@ -156,6 +157,9 @@ a.rm, a.com {
 	border: 1px solid #E7E7E7;
 	margin-left:0px;
 	margin-bottom: 8px;
+	float:left;
+	width:95%;
+	
 }
 .mainbar .post-data a {
 	color:#595959;
@@ -464,3 +468,24 @@ width: 98%;
 	color: gray;
 	size:1px;
  }
+
+.fotos img
+{
+	padding: 10px;
+	margin: 12px 12px 12px 12px;
+	border:solid 1px #DEDEDE; 
+	background:#EFEFEF;
+	float: left;
+}
+
+.cuadro_paginacion
+{
+	padding: 4px;
+	margin: 4px 4px 10px 4px;
+	border:solid 1px #DEDEDE; 
+	background:#EFEFEF;
+	float: left;
+	width: 98%;
+	text-align: center;
+
+}

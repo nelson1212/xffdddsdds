@@ -9,11 +9,20 @@ class AlbumsController extends AppController {
 	}
 	
 	function index() {
+		$this->layout="index";
 		$this->Album->recursive = -1;
 		$albums = $this->Album->find("all");
 		$this->set('albums', $this->paginate());
 	}
-
+	
+	function admin_index() {
+		//$this->layout="index";
+		$this->Album->recursive = -1;
+		$albums = $this->Album->find("all");
+		$this->set('albums', $this->paginate());
+	}
+	
+	
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid album', true));

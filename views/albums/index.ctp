@@ -1,13 +1,11 @@
 <div class="albums index">
-	<h2><?php __('Albums');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<h2><?php __('Galeria de imagenes');?></h2>
+	<table border="1" width="100%">
 	<tr>
-			
-			<th><?php echo $this->Paginator->sort('Creador');?></th>
 			<th><?php echo $this->Paginator->sort('Titulo');?></th>
 			<th><?php echo $this->Paginator->sort('Descripción');?></th>
 			<th><?php echo $this->Paginator->sort('Ubicación');?></th>
-			<th><?php echo $this->Paginator->sort('Creado');?></th>
+			<th><?php echo $this->Paginator->sort('Fecha');?></th>
 			<th><?php echo $this->Paginator->sort('Acciones');?></th>
 			
 	</tr>
@@ -28,13 +26,10 @@
 		<td><?php echo $album['Album']['location']; ?>&nbsp;</td>
 		
 		<td><?php echo $album['Album']['created']; ?>&nbsp;</td>
-		<td><?php echo $album['Album']['modified']; ?>&nbsp;</td>
+	
 		<td class="actions">
-			<?php echo $this->Html->link(__('Agregar fotos', true), array('controller'=>"Photos",'action' => 'add', $album['Album']['id'])); ?>
 			<?php echo $this->Html->link(__('Ver fotos', true), array('controller'=>'Photos','action' => 'index', $album['Album']['id'])); ?>
-			<?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $album['Album']['id'])); ?>
-			<?php echo $this->Html->link(__('Borrar', true), array('action' => 'delete', $album['Album']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $album['Album']['id'])); ?>
-		</td>
+			</td>
 	</tr>
 <?php endforeach; ?>
 	</table>

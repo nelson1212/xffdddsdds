@@ -1,4 +1,4 @@
-<div class="Photos index">
+<div class="article">
 	<h2><?php  echo 'Album '.$titulo ;?></h2>
    <?php 
 	if(empty($photos)){
@@ -37,13 +37,9 @@
 ?>
 	
 </div>
-<td class="actions">
-			<?php echo $this->Html->link(__('Agregar fotos', true), array('controller'=>"Photos",'action' => 'add', $photo['Photo']['id'])); ?>
-			<?php echo $this->Html->link(__('Ver fotos', true), array('controller'=>'Photos','action' => 'index', $photo['Photo']['id'])); ?>
-			<?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $photo['Photo']['id'])); ?>
-			<?php echo $this->Html->link(__('Borrar', true), array('action' => 'delete', $photo['Photo']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $photo['Photo']['id'])); ?>
-		</td>
-	</table>
+
+
+<div class="cuadro_paginacion">
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -51,11 +47,14 @@
 	));
 	?>	</p>
 
-	<div class="paging">
+
 		<?php echo $this->Paginator->prev('<< ' . __('Anterior', true), array(), null, array('class'=>'disabled'));?>
 	 | 	<?php echo $this->Paginator->numbers();?>
  |
 		<?php echo $this->Paginator->next(__('Siguiente', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-	</div>
+	
+ </div>
+	
+	
 </div>
 

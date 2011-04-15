@@ -5,11 +5,16 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <?php
         echo $this->Html->css('style');
-		echo $this->Html->script("/js/js1/jquery-1.3.2.min.js");
-        echo $this->Html->script("/js1/script.js");
-        echo $this->Html->script("/js1/cufon-yui.js");
-        echo $this->Html->script("/js1/arial.js");
-        echo $this->Html->script("/js1/cuf_run.js");
+		
+
+		echo $this->Html->css('jquery.cleditor');
+		echo $this->Html->css('jquery.lightbox-0.5.css');
+		echo $this->Html->script('jquery.js');
+	
+		echo $this->Html->script('jquery.lightbox-0.5.js');
+
+		echo $this->Html->script('box.js');
+		
 		echo $scripts_for_layout;
 ?>
 </head>
@@ -18,13 +23,13 @@
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <h1><a href="index.html"><span>EFIR</span> <small></small></a></h1>
+        <h1><a href="index.html"><span></span> <small></small></a></h1>
       </div>
       <div class="menu_nav">
         <ul>
-          <li class="active"><a href="index.html">Inicio</a></li>
-          <li><a href="support.html">Misión</a></li>
-          <li><a href="about.html">Visión</a></li>
+          <li class="active"> <li class="active"><?php echo $this->Html->link("Inicio", array('controller' => 'noticias','action' => 'index')); ?></li></li>
+          <li><li ><?php echo $this->Html->link("Visión", array('controller' => 'contents','action' => 'view', 4)); ?></li></li>
+          <li><li ><?php echo $this->Html->link("Misión", array('controller' => 'contents','action' => 'view', 1)); ?></li></li>
           <li><a href="blog.html">Servicios</a></li>
           <li><a href="contact.html">Contactenos</a></li>
         </ul>
@@ -32,8 +37,7 @@
       <div class="clr"></div>
       <div class="hbg"><?php echo $html->image("/img/images1/header_images.jpg", array("width"=>"430", "height"=>"315","alt"=>"","class"=>"fl")); ?>
         <div class="info fl">
-          <h3>Your Potential <br />
-            Our Passion </h3>
+          <h2>Escuela de formación integral los Rosales</h2>
         </div>
         <div class="clr"></div>
       </div>
@@ -46,9 +50,7 @@
       	
       	<?php echo $content_for_layout; ?>
         
-          
-        
-
+    
       </div>
       <div class="sidebar">
         <div class="gadget">
@@ -69,16 +71,30 @@
           	
             <li class="active"><?php echo $this->Html->link("Inicio", array('controller' => 'noticias','action' => 'index')); ?></li>
 					
-            <li><a href="#">Historia</a></li>
-            <li><a href="#">Quienes somos</a></li>
-            <li><a href="#">Visión/a></li>
-            <li><a href="#">Misión</a></li>
-            <li><a href="#">Principios</a></li>
-            <li><a href="#">Ejes tematicos</a></li>
-            <li><a href="#">Logros</a></li>
-            <li><a href="#">Expectativas</a></li>
-            <li><a href="#">Imagenes</a></li>
-            <li><a href="#">Espacios de formación</a></li>
+            <li class="active"><?php echo $this->Html->link("Historia", array('controller' => 'contents','action' => 'view', 2)); ?></li>
+            
+            <li class="active"><?php echo $this->Html->link("Quienes somos", array('controller' => 'contents','action' => 'view', 3)); ?></li>
+            
+            <li class="active"><?php echo $this->Html->link("Visión", array('controller' => 'contents','action' => 'view', 4)); ?></li>
+            
+            <li class="active"><?php echo $this->Html->link("Misión", array('controller' => 'contents','action' => 'view', 1)); ?></li>
+            
+            <li class="active"><?php echo $this->Html->link("Principios", array('controller' => 'contents','action' => 'view', 5)); ?></li>
+            
+			<li class="active"><?php echo $this->Html->link("Ejes tematicos", array('controller' => 'contents','action' => 'view', 6)); ?></li>
+			
+			<li class="active"><?php echo $this->Html->link("Logros", array('controller' => 'contents','action' => 'view', 7)); ?></li>
+
+           <li class="active"><?php echo $this->Html->link("Expectativas", array('controller' => 'contents','action' => 'view', 8)); ?></li>
+           
+           <li class="active"><?php echo $this->Html->link("Días de trabajo", array('controller' => 'contents','action' => 'view', 9)); ?></li>
+           
+           <li class="active"><?php echo $this->Html->link("Experiencias", array('controller' => 'contents','action' => 'view', 10)); ?></li>
+			
+			<li class="active"><?php echo $this->Html->link("Imagenes", array('controller' => 'albums','action' => 'index')); ?></li>
+			
+			<li class="active"><?php echo $this->Html->link("Espacios de formación", array('controller' => 'contents','action' => 'view', 11)); ?></li>
+
           </ul>
         </div>
         <div class="gadget">

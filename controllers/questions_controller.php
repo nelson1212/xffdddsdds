@@ -3,7 +3,7 @@ class QuestionsController extends AppController {
 
 	var $name = 'Questions';
 
-	function index() {
+	function admin_index() {
 		$this->Question->recursive = 0;
 		$this->set('questions', $this->paginate());
 	}
@@ -16,7 +16,7 @@ class QuestionsController extends AppController {
 		$this->set('question', $this->Question->read(null, $id));
 	}
 
-	function add() {
+	function admin_add($id=null) {
 		if (!empty($this->data)) {
 			$this->Question->create();
 			if ($this->Question->save($this->data)) {
@@ -27,7 +27,7 @@ class QuestionsController extends AppController {
 			}
 		}
 		$polls = $this->Question->Poll->find('list');
-		$this->set(compact('polls'));
+		$this->set(compact('polls',"id"));
 	}
 
 	function edit($id = null) {

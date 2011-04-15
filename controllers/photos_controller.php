@@ -10,6 +10,23 @@ class PhotosController extends AppController {
 	function index() 
 	{
 		//debug($this->params); exit;
+		$this->layout="index";
+		$this->Photo->recursive = 1;
+		$albumId=$this->params['pass'][0];
+		$photos=$this->Photo->find("all", array('conditions'=>array('Photo.album_id'=>$albumId), 
+									"fields"=>array('id','name','album_id',"thumb")));
+		
+		$this->paginate=array('order' => array('Photo.created' => 'desc'),"limit"=>15);
+		$this->set('photos', $this->paginate());
+		$directorio = $albumId;
+		$album= $this->Photo->Album->query("SELECT title FROM albums where id='$albumId'");
+		$titulo = $album[0]['albums']['title'];
+		$this->set(compact('directorio', 'titulo', "albumId"));
+	}
+	
+	function admin_index() 
+	{
+		//debug($this->params); exit;
 		$this->Photo->recursive = -1;
 		$albumId=$this->params['pass'][0];
 		$photos=$this->Photo->find("all", array('conditions'=>array('Photo.album_id'=>$albumId), 
@@ -21,6 +38,7 @@ class PhotosController extends AppController {
 		$titulo = $album[0]['albums']['title'];
 		$this->set(compact('directorio', 'titulo', "albumId"));
 	}
+	
 
 	function view($id = null) {
 		if (!$id) {

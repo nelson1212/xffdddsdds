@@ -28,19 +28,19 @@
 	</title>
 	<?php
 		//echo $this->Html->meta('icon');
-
 		echo $this->Html->css('cake.generic');
-		echo $this->Html->script('jquery.js');
-		
+		echo $this->Html->css('jquery.cleditor');
 		echo $this->Html->css('jquery.lightbox-0.5.css');
-		echo $this->Html->script('jquery.lightbox-0.5.js');
-		/*echo $this->Html->css('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css');
-		echo $this->Html->css('jquery.fileupload-ui.css');
-		echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js');
-		echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js');*/
+		echo $this->Html->script('jquery.js');
 		echo $this->Html->script('contador.js');
 		echo $this->Html->script('jquery.jqEasyCharCounter.min.js');
 		echo $this->Html->script('textLimit.js');
+		//echo $this->Html->script('jquery.cleditor.min.js');
+		echo $this->Html->script('jquery.cleditor.js');
+		echo $this->Html->script('jquery.lightbox-0.5.js');
+		echo $this->Html->script('editor.js');
+		echo $this->Html->script('box.js');
+		
 		echo $scripts_for_layout;
 	?>
 </head>
