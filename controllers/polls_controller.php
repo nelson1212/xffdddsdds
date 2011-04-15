@@ -86,6 +86,8 @@ class PollsController extends AppController {
 				$this->Session->setFlash(__('The poll could not be saved. Please, try again.', true));
 			}
 		}
+		
+		$userId=$this->Session->read("Auth.User.id");
 		$users = $this->Poll->User->find('list');
 		$this->set(compact('users'));
 	}
@@ -121,6 +123,20 @@ class PollsController extends AppController {
 		}
 		$this->Session->setFlash(__('Poll was not deleted', true));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	function getLastPoll() 
+	{
+		$this->layout="index";
+		$this->Poll->recursive = 1;
+		$polls = $this->Poll->find("first",array('order' => 'Poll.created DESC'));
+		
+		if(!empty($polls)){
+			return $polls;
+		}else {
+			$this->set('polls');
+		}
+		
 	}
 }
 ?>

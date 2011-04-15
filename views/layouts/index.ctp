@@ -100,20 +100,8 @@
         <div class="gadget">
           <h2 class="star"><span>Encuesta</span></h2><hr>
           <div class="clr"></div>
-          <ul class="ex_menu">
-            <li><a href="http://www.dreamtemplate.com">DreamTemplate</a><br />
-              Over 6,000+ Premium Web Templates</li>
-            <li><a href="http://www.templatesold.com/">TemplateSOLD</a><br />
-              Premium WordPress &amp; Joomla Themes</li>
-            <li><a href="http://www.imhosted.com">ImHosted.com</a><br />
-              Affordable Web Hosting Provider</li>
-            <li><a href="http://www.myvectorstore.com">MyVectorStore</a><br />
-              Royalty Free Stock Icons</li>
-            <li><a href="http://www.evrsoft.com">Evrsoft</a><br />
-              Website Builder Software &amp; Tools</li>
-            <li><a href="http://www.csshub.com/">CSS Hub</a><br />
-              Premium CSS Templates</li>
-          </ul>
+          <?php echo $this->element('poll'); ?>
+     
         </div>
         <div class="gadget">
           <h2 class="star"><span>Visitas</span></h2><hr>

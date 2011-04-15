@@ -48,7 +48,7 @@ class PhotosController extends AppController {
 		$this->set('photo', $this->Photo->read(null, $id));
 	}
 
-	function add() 
+	function admin_add() 
 	{
 		if (!empty($this->data)) 
 		{
@@ -108,7 +108,7 @@ class PhotosController extends AppController {
 		 
 	}
 
-	function edit($id = null) {
+	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid photo', true));
 			$this->redirect(array('action' => 'index'));

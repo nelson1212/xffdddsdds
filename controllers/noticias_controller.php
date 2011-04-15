@@ -198,8 +198,8 @@ class NoticiasController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Noticia->read(null, $id);
 		}
-		$categories = $this->Noticia->Category->find('list');
-		$users = $this->Noticia->User->find('list');
+		$categories = $this->Noticia->Category->find('list', array("fields"=>array("id", "description")));
+		//$users = $this->Noticia->User->find('list');
 		$this->set(compact('categories', 'users'));
 	}
 

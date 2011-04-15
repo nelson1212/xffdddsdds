@@ -46,7 +46,8 @@
 					echo '</div>';
 					
 					echo '<div class="opciones1">';
-						echo $this->Html->link(__('Borrar', true), array("controller"=>"questions",'action' => 'admin_delete', $poll["Question"][$i]["id"]), null, sprintf(__('Are you sure you want to delete # %s?', true), $poll["Question"][$i]["question"]));
+						echo $this->Html->link(__('Borrar', true), array("controller"=>"questions",'action' => 'admin_delete', $poll["Question"][$i]["id"],$id), null, sprintf(__('Are you sure you want to delete # %s?', true), $poll["Question"][$i]["question"]));
+						echo " | ".$this->Html->link(__('Editar', true), array("controller"=>"questions",'action' => 'admin_edit', $poll['Question'][$i]['id'], $id));
 					echo '</div>';
 					echo "<br>";
 				}

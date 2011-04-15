@@ -60,7 +60,7 @@ class AlbumsController extends AppController {
 		 
 	}
 
-	function edit($id = null) {
+	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid album', true));
 			$this->redirect(array('action' => 'index'));
@@ -91,6 +91,11 @@ class AlbumsController extends AppController {
 		}
 		$this->Session->setFlash(__('Album was not deleted', true));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	function lastAlbums()
+	{
+		//$albums=$this-Album->find("all", array())
 	}
 }
 ?>
