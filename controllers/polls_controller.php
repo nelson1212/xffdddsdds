@@ -73,6 +73,7 @@ class PollsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('poll', $this->Poll->read(null, $id));
+		$this->set(compact('id'));
 	}
 
 	function admin_add() {

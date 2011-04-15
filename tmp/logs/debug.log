@@ -3782,3 +3782,6 @@
 2011-04-14 06:50:59 Debug: Notice (8): Undefined offset: 0 in [D:\xampp\htdocs\efir2011\controllers\photos_controller.php, line 23]
 2011-04-14 06:50:59 Debug: Notice (8): Undefined offset: 0 in [D:\xampp\htdocs\efir2011\controllers\photos_controller.php, line 23]
 2011-04-14 06:50:59 Debug: Notice (8): Undefined offset: 0 in [D:\xampp\htdocs\efir2011\controllers\photos_controller.php, line 23]
+2011-04-15 02:44:06 Debug: Notice (8): Undefined index: nombre in [D:\xampp\htdocs\efir2011\views\polls\admin_view.ctp, line 37]
+2011-04-15 02:44:06 Debug: Notice (8): Undefined offset: 1 in [D:\xampp\htdocs\efir2011\views\polls\admin_view.ctp, line 37]
+2011-04-15 02:44:25 Debug: Notice (8): Undefined offset: 1 in [D:\xampp\htdocs\efir2011\views\polls\admin_view.ctp, line 37]

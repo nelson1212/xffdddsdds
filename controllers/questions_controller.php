@@ -20,8 +20,8 @@ class QuestionsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Question->create();
 			if ($this->Question->save($this->data)) {
-				$this->Session->setFlash(__('The question has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('La opción fue guardada correctamente', true));
+				$this->redirect(array('action' => 'admin_view', 'controller'=>"polls", $this->data["Question"]["poll_id"]));
 			} else {
 				$this->Session->setFlash(__('The question could not be saved. Please, try again.', true));
 			}
@@ -50,14 +50,14 @@ class QuestionsController extends AppController {
 		$this->set(compact('polls'));
 	}
 
-	function delete($id = null) {
+	function admin_delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for question', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Question->delete($id)) {
 			$this->Session->setFlash(__('Question deleted', true));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect(array('action' => 'admin_view', 'controller'=>"polls", $id));
 		}
 		$this->Session->setFlash(__('Question was not deleted', true));
 		$this->redirect(array('action' => 'index'));
