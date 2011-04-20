@@ -3,7 +3,7 @@
 	<fieldset>
  		<legend><?php __('Crear usuario'); ?></legend>
 	<?php
-		echo $this->Form->input('role_id', array("type"=>"hidden","label"=>"Rol"));
+		echo $this->Form->input('role_id', array("label"=>"Rol"));
 		echo $this->Form->input('first_name', array("label"=>"Nombre(s)"));
 		echo $this->Form->input('last_name', array("label"=>"Apellido(s)"));
 		echo $this->Form->input('email',array("label"=>"Email"));

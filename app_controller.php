@@ -13,6 +13,9 @@ class AppController extends Controller {
 		$this->Auth->loginRedirect = array("controller"=>"users", "action"=>"index");
 		$this->Auth->logoutRedirect = array("controller"=>"users", "action"=>"login");
 		$this->Auth->allow("*");
+	
 	}	
+	
+	
 
 }

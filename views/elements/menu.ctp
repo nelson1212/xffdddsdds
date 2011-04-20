@@ -38,7 +38,14 @@
 			echo "<br>";					
 			echo "<br>";						
 									
-	
+		echo '<li>'.$this->Html->link(__(('Gestión de contenidos'), true), 
+									array('controller' => 'contents', 'action' => 'admin_index')).'</li>';
+		
+			echo $this->Html->link(__(('- Ver contenidos'), true), 
+									array('controller' => 'contents', 'action' => 'admin_index')).'</li>';
+			echo "<br>";					
+			echo "<br>";
+			
 			
 		echo '<li>'.$this->Html->link(__(('Gestión de encuestas'), true), 
 									array('controller' => 'polls', 'action' => 'index')).'</li>';

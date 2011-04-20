@@ -1,14 +1,16 @@
 <div class="albums index">
 	<h2><?php __('Galeria de imagenes');?></h2>
 	<table border="1" width="100%">
+		<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('Titulo');?></th>
-			<th><?php echo $this->Paginator->sort('Descripción');?></th>
-			<th><?php echo $this->Paginator->sort('Ubicación');?></th>
-			<th><?php echo $this->Paginator->sort('Fecha');?></th>
-			<th><?php echo $this->Paginator->sort('Acciones');?></th>
+			<th><?php echo 'Titulo'; ?></th>
+			<th><?php echo 'Descripción'; ?></th>
+			<th><?php echo 'Ubicación'; ?></th>
+			<th><?php echo 'Fecha creación'; ?></th>
+			<th><?php echo 'Acciones'; ?></th>
 			
 	</tr>
+	</thead>
 	<?php
 	$i = 0;
 	//debug($albums);

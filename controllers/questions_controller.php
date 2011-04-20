@@ -30,6 +30,31 @@ class QuestionsController extends AppController {
 		$this->set(compact('polls',"id"));
 	}
 
+	
+	function add($id=null) 
+	{
+		if (!empty($this->data)) {
+				
+			$id=$this->data["Question"]["question"];	
+			$num_opcion=$this->Question->query("select num_votos from questions where id='$id'");
+			$num_opcion=$num_opcion[0]["questions"]["question"];
+			$num_opcion++;
+			
+			$this->Question->query("update questions set num_votos='$num_opcion' where id='$id'");
+		
+			if ($this->Question->query("update questions set num_votos='$num_opcion' where id='$id'")==1) {
+				$this->Session->setFlash(__('La opción fue guardada correctamente', true));
+				$this->redirect(array('action' => 'view', 'controller'=>"polls", $this->data["Question"]["poll_id"]));
+			} else {
+				$this->Session->setFlash(__('La opción fue guardada correctamente, por favor intenta de nuevo.', true));
+			}
+		}
+	
+		$polls = $this->Question->Poll->find('list');
+		$this->set(compact('polls',"id"));
+	}
+	
+	
 	function admin_edit($id = null, $album=null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid question', true));

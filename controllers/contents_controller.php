@@ -123,5 +123,26 @@ class ContentsController extends AppController {
 		$this->Session->setFlash(__('Content was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	function vision()
+	{
+		$vision=$this->Content->read(null, 4);
+		
+		if(!empty($vision))
+		{
+			return substr($vision["Content"]["content"],0,150);
+		}
+	}
+	
+	function mision()
+	{
+		$mision=$this->Content->read(null, 1);
+		
+		if(!empty($mision))
+		{
+			return substr($mision["Content"]["content"],0,150);
+		}
+	}		
+				
 }
 ?>

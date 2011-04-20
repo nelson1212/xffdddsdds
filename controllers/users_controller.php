@@ -5,19 +5,10 @@ class UsersController extends AppController {
 	var $components=array("Auth");
 	
 	
-	function beforeFilter()
+	function beforeRender()
 	{
-		$this->Auth->allow("add", "index");
+	    
 		
-		/*$actualUser=$this ->Session->read("actualUser");
-		
-		if(empty($actualUser))
-		{
-			if (isset($this->params['requested'])) {
-				$this->redirect(array('action' => 'login', 'controller'=>"users"));	
-			}
-			
-		} */
 	}
 	
 	function login()
@@ -64,8 +55,12 @@ class UsersController extends AppController {
 
 	function add() {
 		$password="";
+		
+		
 		if (!empty($this->data)) 
 		{
+			
+		
 			$password=$this->data["User"]["password"];			
 			$this->data["User"]["username"]=$this->data["User"]["email"];
 			$this->data["User"]["password"]=$this->Auth->password($this->data['User']['password']);

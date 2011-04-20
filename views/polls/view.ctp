@@ -31,7 +31,25 @@
 			&nbsp;
 		</dd>
 		-->
+		
+		
 	</dl>
+<br>
+	<div class="encuesta">
+		<?php 
+			for($i=0;$i<=count($resultado)-1; $i++){
+				echo "<h3>".$resultado[$i]['pregunta']."</h3>";
+				
+				echo "Votos: ".$resultado[$i]['num_votos'];
+				echo "</br>";
+				echo "Porcentaje :<b>".$resultado[$i]['por']."</b>";
+				echo "</br>";
+				echo "<hr>";
+				echo "</br>";
+			}
+		?>
+		<b>Numero total de votos: <?php echo $total_votos; ?></b>
+	</div>
 </div>
 
 

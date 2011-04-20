@@ -4,7 +4,7 @@ body {
 	padding:0;
 	width:100%;
 	
-	font:normal 12px/1.8em Times, Helvetica, sans-serif;
+	font:normal 13px/1.8em "Droid Sans","Lucida Grande","Lucida Sans MS",sans-serif;
 	background:#ffffff url(../img/images1/main_bg.gif) repeat-x top;
 }
 
@@ -26,7 +26,7 @@ h1 {
 	margin:0;
 	padding:12px 0 0;
 	color:#636363;
-	font:bold 38px/1.2em Arial, Helvetica, sans-serif;
+	font:bold 38px/1.2em "Droid Sans","Lucida Grande","Lucida Sans MS",sans-serif;
 	letter-spacing:-2px;
 	text-align:center;
 }
@@ -39,17 +39,17 @@ h1 span {
 }
 h1 small {
 	padding:0 10px;
-	font:normal 12px/1.2em Arial, Helvetica, sans-serif;
+	font:normal 12px/1.2em "Droid Sans","Lucida Grande","Lucida Sans MS",sans-serif;
 	letter-spacing:normal;
 }
 h2 {
-	font:normal 24px Arial, Helvetica, sans-serif;
+	font:normal 24px "Droid Sans","Lucida Grande","Lucida Sans MS",sans-serif;
 	padding:8px 0;
 	margin:0;
 	color:#595959;
 }
 h3 {
-	font:normal 56px Arial, Helvetica, sans-serif;
+	font:normal 56px "Droid Sans","Lucida Grande","Lucida Sans MS",sans-serif;
 	padding:18px 0 8px;
 	margin:0;
 	color:#fdfdfd;
@@ -57,7 +57,10 @@ h3 {
 p {
 	margin:8px 0;
 	padding:0 0 8px 0;
-	font:normal 12px/1.8em Arial, Helvetica, sans-serif;
+	font-size: 110%;
+	font-family: "Droid Sans","Lucida Grande","Lucida Sans MS",sans-serif;
+	text-align: justify;
+	line-height: 170%;
 }
 p.spec {
 }
@@ -86,6 +89,8 @@ a.rm, a.com {
 	padding:0;
 	background:#97c950;
 	margin:0;
+	background-color: blue;
+	
 }
 .hbg img {
 	margin:0;
@@ -175,6 +180,7 @@ a.rm, a.com {
 	float:left;
 	width:280px;
 	border: 1px solid #E7E7E7;
+
 }
 .sidebar .gadget {
 	margin:0;
@@ -188,7 +194,7 @@ a.rm, a.com {
 }
 .sidebar .gadget span.q {
 	text-align:right;
-	font:normal 60px/12px Arial, Helvetica, sans-serif;
+	font:normal 60px/12px "Droid Sans","Lucida Grande","Lucida Sans MS",sans-serif;
 	color:#d9d9d9;
 }
 ul.sb_menu, ul.ex_menu {
@@ -347,7 +353,7 @@ ol li .send {
 	border:0;
 	background:none;
 	color:#afaeae;
-	font:normal 12px/15px Arial, Helvetica, sans-serif;
+	font:normal 12px/15px "Droid Sans","Lucida Grande","Lucida Sans MS",sans-serif;
 }
 .search .btn {
 	float:left;
@@ -358,7 +364,7 @@ ol li .send {
 }
 .pagenavi {
 	clear:both;
-	font:normal 13px Arial, Helvetica, sans-serif;
+	font:normal 13px "Droid Sans","Lucida Grande","Lucida Sans MS",sans-serif;
 	margin:0 auto;
 	text-align:right;
 	padding:15px 13px;
@@ -416,13 +422,13 @@ ol li .send {
  
  .respuesta input[type="text"], textarea { 
 	background-attachment: scroll;
-	background-clip: border-box;
+
 	background-color: #f9f9f9;
 	background-image: none;
-	background-origin: padding-box;
+
 	background-position: 0% 0%;
 	background-repeat: repeat;
-	background-size: auto;
+
 	border-bottom-color: #cccccc;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
@@ -472,10 +478,24 @@ width: 98%;
 .fotos img
 {
 	padding: 10px;
-	margin: 12px 12px 12px 12px;
+	margin: 10px 12px 12px 12px;
 	border:solid 1px #DEDEDE; 
 	background:#EFEFEF;
 	float: left;
+	text-align: justify;
+
+	
+}
+
+.fotos_article img
+{
+	margin: 8px;
+	border:solid 1px #DEDEDE; 
+	background:#EFEFEF;
+	float: left;
+	text-align: justify;
+
+	
 }
 
 .cuadro_paginacion
@@ -486,6 +506,19 @@ width: 98%;
 	background:#EFEFEF;
 	float: left;
 	width: 98%;
-	text-align: center;
+	text-align: justify;
 
+}
+
+.encuesta td{
+
+	padding: 8px;
+	text-align: justify;
+}
+
+.contador {
+font-size: 240%;
+text-align: center;
+float:left;
+margin-bottom: 18px;
 }

@@ -3,7 +3,7 @@
 ?>
 
   <div class="article">
-      <h2><?php echo $content['Content']['title']; ?><hr></h2>
+      <h2><?php echo $content['Content']['title']; ?></h2>
    
       <div class="noticia"><?php echo $content["Content"]["content"] ?></div>
 

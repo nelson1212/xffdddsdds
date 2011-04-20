@@ -9,15 +9,38 @@ class PollsController extends AppController {
 	}
 
 	function view($id = null) {
+		
+		$this->layout="index";
+		
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid poll', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		
+		$resultados = $this->Poll->Question->find("all", array("fields"=>array("id", "question", "num_votos"), "conditions"=>array("Question.poll_id"=>$id)));
+		
+		$total_votos = 0;	
+		for($i=0;$i<=count($resultados)-1; $i++) {
+			$total_votos=$total_votos+$resultados[$i]["Question"]['num_votos'];
+		}
+		
+		for($i=0;$i<=count($resultados)-1; $i++) {
+			$porcentaje=(100*$resultados[$i]["Question"]['num_votos'])/$total_votos;
+			$porcentaje=round($porcentaje)." %";
+			$resultado[] = array("pregunta"=>$resultados[$i]["Question"]['question'], "num_votos"=>$resultados[$i]["Question"]['num_votos'],"por"=>$porcentaje);
+		}
+		
+		//debug($resultado);
+		$this->set(compact("resultado", "total_votos"));
 		$this->set('poll', $this->Poll->read(null, $id));
 	}
 
 	function add() {
+		
+			debug($this->data);
 		if (!empty($this->data)) {
+		
+			
 			$this->Poll->create();
 			if ($this->Poll->save($this->data)) {
 				$this->Session->setFlash(__('La encuesta fue guardada', true));
@@ -72,8 +95,23 @@ class PollsController extends AppController {
 			$this->Session->setFlash(__('Invalid poll', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		
+		$resultados = $this->Poll->Question->find("all", array("fields"=>array("id", "question", "num_votos"), "conditions"=>array("Question.poll_id"=>$id)));
+		
+		$total_votos = 0;	
+		for($i=0;$i<=count($resultados)-1; $i++) {
+			$total_votos=$total_votos+$resultados[$i]["Question"]['num_votos'];
+		}
+		
+		for($i=0;$i<=count($resultados)-1; $i++) {
+			$porcentaje=(100*$resultados[$i]["Question"]['num_votos'])/$total_votos;
+			$porcentaje=round($porcentaje)." %";
+			$resultado[] = array("pregunta"=>$resultados[$i]["Question"]['question'], "num_votos"=>$resultados[$i]["Question"]['num_votos'],"por"=>$porcentaje);
+		}
+		
+		//debug($resultado);
+		$this->set(compact("resultado", "total_votos"));
 		$this->set('poll', $this->Poll->read(null, $id));
-		$this->set(compact('id'));
 	}
 
 	function admin_add() {
