@@ -67,9 +67,14 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 
 .col1, .col1 a{color:#C4C5C3; background-color:#2D3134;}
 
-.col2{color:#FFFFFF; background-color:#CCCCCC; padding:15px 0}
+.col2{
+		color:#FFFFFF; 
+		background-color:#CCCCCC; 
+		background-image:url('5n.gif');
+		padding:15px 0;
+	}
 
-.col3{color:#666666; background-color:#FFFFFF;}
+.col3{color:#666666; background-color:#FFFFFF; }
 .col3 a{color:#02ACEE; background-color:#FFFFFF;}
 
 .col4{color:#CCCCCC; background-color:#2A2B2F;}
@@ -275,6 +280,7 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 	display:block;
 	width:300px;
 	margin-bottom:20px;
+	border:1px #CCCCCC solid;
 	}
 
 #column .holder h2.title{
@@ -453,6 +459,7 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 	background:#EFEFEF;
 	float: left;
 	text-align: justify;
+	
 
 	
 }
@@ -479,15 +486,28 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 
 .comentarios
 {
-	
 	float: left;
 	text-align: justify;
 }
 
 .leer_mas
 {
-	
 	float: right;
-	
 }
 
+.encuesta {
+	display: block;
+	margin:2px;
+	margin-left:5px;
+	text-align:justify;
+	width:80%;
+	line-height: 180%;
+} 
+
+.visitas {
+	display: block;
+	margin:10px;
+	font-size:140%;
+	margin-left:5px;
+	
+}

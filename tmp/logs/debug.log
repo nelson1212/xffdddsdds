@@ -3908,3 +3908,4 @@
 2011-04-20 20:29:54 Debug: Notice (8): Undefined variable: resultado in [D:\xampp\htdocs\efir2011\views\polls\view.ctp, line 40]
 2011-04-20 20:30:22 Debug: Notice (8): Undefined variable: resultado in [D:\xampp\htdocs\efir2011\views\polls\view.ctp, line 40]
 2011-04-20 20:30:52 Debug: Notice (8): Undefined variable: resultado in [D:\xampp\htdocs\efir2011\views\polls\view.ctp, line 40]
+2011-04-20 23:15:37 Debug: Notice (8): Undefined variable: pollId in [D:\xampp\htdocs\efir2011\views\elements\counter.ctp, line 48]

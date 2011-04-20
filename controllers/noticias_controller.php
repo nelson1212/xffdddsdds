@@ -8,7 +8,7 @@ class NoticiasController extends AppController {
 	function index() {
 	   $this->layout="index";
 		$this->Noticia->recursive = 1;
-		$this->paginate=array('order' => array('Noticia.id' => 'desc'),"limit"=>10);
+		$this->paginate=array('order' => array('Noticia.id' => 'desc'),"limit"=>4);
 		$this->set('noticias', $this->paginate());
 	}
 

@@ -122,9 +122,9 @@
     <div class="featured_box"><a href="#"><?php echo $html->image("rotador/imagen2.jpg"); ?></a>
     </div>
     
-    <div class="featured_box"><a href="#"><?php echo $html->image("rotador/imagen1.jpg"); ?></a>
+    <div class="featured_box"><a href="#"><?php echo $html->image("rotador/imagen3.jpg"); ?></a>
     </div>
-    
+    <!-- 
     
     <div class="featured_box"><a href="#"><?php echo $html->image("rotador/imagen3.jpg"); ?></a>
     </div>
@@ -135,7 +135,7 @@
     
     <div class="featured_box"><a href="#"><?php echo $html->image("rotador/imagen4.jpg"); ?></a>
     </div>
-   
+   -->
   </div>
 </div>
 
@@ -209,8 +209,10 @@
           <li>
             <h2>Encuesta</h2>
            
-            <p ><?php echo $this->element('poll'); ?></p>
-            <p class="readmore"><a href="#">Ver resultados »</a></p>
+			
+	            <p ><?php echo $this->element('poll'); ?></p>
+	           
+           	
           </li>
         </ul>
       </div>
@@ -220,13 +222,15 @@
           <li>
             <h2>Visitas</h2>
            
+           	
             <p ><?php echo $this->element('counter'); ?></p>
-            <p class="readmore"><a href="#">Ver detalles »</a></p>
+            
+           
           </li>
         </ul>
       </div>
       
-      
+   <!--   
       <div class="holder">
         <h2>Lorem ipsum dolor</h2>
         <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
@@ -240,13 +244,16 @@
       </div>
     </div>
     
-    
+    -->
     
 
     <br class="clear" />
   </div>
 </div>
+
+
 <!-- ####################################################################################################### -->
+<!-- 
 <div class="wrapper col4">
   <div id="footer">
     <div class="footbox">
@@ -307,11 +314,12 @@
     <br class="clear" />
   </div>
 </div>
+-->
 <!-- ####################################################################################################### -->
 <div class="wrapper col5">
   <div id="copyright">
-    <p class="fl_left">Copyright &copy; 2010 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a href="http://www.os-templates.com/" title="Open Source Templates">OS Templates</a></p>
+    <p class="fl_left">Copyright &copy; 2011 - Todos los derechos reservados, <a href="www.efirchoco.org">EFIR - Escuela de formación integral los rosales</a></p>
+    <p class="fl_right">Sitio desarrolloado por <a href="www.tecnoydes.com" title="">TecnoDes</a></p>
     <br class="clear" />
   </div>
 </div>

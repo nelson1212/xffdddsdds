@@ -48,7 +48,7 @@ Licence: <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commo
 
 /* ----------------------------------------------Column Navigation-------------------------------------*/
 
-#column .subnav{display:block; width:250px; padding:25px; background-color:#F9F9F9; margin-bottom:30px;}
+#column .subnav{display:block; width:250px; padding:25px; background-color:#F9F9F9; margin-bottom:30px; border:1px #CCCCCC solid;}
 
 #column .subnav h2{
 	margin:0 0 20px 0;
@@ -80,7 +80,7 @@ Licence: <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commo
 	margin:0;
 	padding:5px 10px 5px 20px;
 	color:#777777;
-	background:url(.../img/blue_file.gif) no-repeat 10px center #F9F9F9;
+	background:url(blue_file.gif) no-repeat 10px center #F9F9F9;
 	text-decoration:none;
 	border-bottom:1px dotted #666666;
 	}

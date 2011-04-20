@@ -1,3 +1,4 @@
+<div class="visitas">
 <?php
 //IP
 	$ip = $_SERVER['REMOTE_ADDR'];
@@ -41,12 +42,11 @@
 	
 	$consulta="";
 	$consulta=$contador->query("select SUM(num_visitas) as num_visitas from counters"); //Obtenemos la suma de todas las visitas
-	echo "<div class='contador'>";
-		echo $consulta[0][0]["num_visitas"];
-	echo "</div>";
-
 	
-	
-
+		echo "<b>".$consulta[0][0]["num_visitas"]."</b>";
 ?>	
+</div>
+<p class="readmore">
+<?php echo $this->Html->link("Ver detalles »", array('controller' => 'polls','action' => 'view')); echo "<br />";?>
+</p>
 

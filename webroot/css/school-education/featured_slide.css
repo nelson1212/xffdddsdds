@@ -109,7 +109,7 @@ HTML Output:
 	width:960px;
 	height:25px;
 	text-align:center;
-	background-image:url(../img/trans.png);
+	background-image:url(trans1.png);
 	
 	z-index:1000;
 	}
@@ -142,13 +142,13 @@ HTML Output:
 	text-indent:-5000px;
 	text-decoration:none;
 	
-	background-color: blue;
-	background:url(../img/slide.png) 50% 50% no-repeat;
+	background-color:;
+	background:url(slide.png) 50% 50% no-repeat;
 	
 	}
 
 #fsn .activeSlide{
 	
-	background-color: green;
-	background:url(../img/slide.png) 0% 50% no-repeat;
+	background-color:;
+	background:url(slide.png) 0% 50% no-repeat;
 	}
