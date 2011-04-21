@@ -22,18 +22,18 @@
 	?>
 	<tr<?php echo $class;?>>
 	
-		
+		<td><?php echo $album['Album']['user_id']; ?>&nbsp;</td>
 		<td><?php echo $album['Album']['title']; ?>&nbsp;</td>
 		<td><?php echo $album['Album']['description']; ?>&nbsp;</td>
 		<td><?php echo $album['Album']['location']; ?>&nbsp;</td>
 		
 		<td><?php echo $album['Album']['created']; ?>&nbsp;</td>
-		<td><?php echo $album['Album']['modified']; ?>&nbsp;</td>
+
 		<td class="actions">
 			<?php echo $this->Html->link(__('Agregar fotos', true), array('controller'=>"Photos",'action' => 'add', $album['Album']['id'])); ?>
 			<?php echo $this->Html->link(__('Ver fotos', true), array('controller'=>'Photos','action' => 'index', $album['Album']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar', true), array('action' => 'edit', $album['Album']['id'])); ?>
-			<?php echo $this->Html->link(__('Borrar', true), array('action' => 'delete', $album['Album']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $album['Album']['id'])); ?>
+			<?php echo $this->Html->link(__('Borrar', true), array('action' => 'admin_delete', $album['Album']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $album['Album']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

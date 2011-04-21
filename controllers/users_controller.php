@@ -11,9 +11,12 @@ class UsersController extends AppController {
 		
 	}
 	
-	function login()
+	public function login()
 	{
-		
+		parent::beforeFilter();
+        $this->Auth->allow('add');
+	  
+	  
 		/*if ( !empty($this->data) )
 		{
 			$this->User->recursive = 0;
@@ -33,7 +36,7 @@ class UsersController extends AppController {
 		}*/
 	}
 	
-	function logout()
+	public function logout()
 	{
 		$this->redirect($this->Auth->logout());
 	}

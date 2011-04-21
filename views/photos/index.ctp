@@ -16,7 +16,7 @@
 		$ruta = "/webroot/img/fotos/".$directorio."/".$photo['Photo']['name'];
 		$ruta = str_replace("\\", "/", $ruta);
 			
-		if($i % 2 == 0)
+		if($i % 3 == 0)
 		{
 			echo "<div class='fotos'>";
 			echo "<a href='http://localhost/efir2011/img/fotos/".$directorio."/".$photo['Photo']['name']."' >";

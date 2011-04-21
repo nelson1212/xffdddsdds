@@ -8,12 +8,20 @@
         //echo $this->Html->css('style');
 //		 echo $this->Html->css('rotator_style');
 
+		//debug($this->params);
+		
 		echo $this->Html->css('jquery.cleditor');
 		echo $this->Html->css('jquery.lightbox-0.5.css');
 		echo $this->Html->css("school-education/layout.css");
 		
+		if($this->params["controller"]=="Photos"){
+			echo $this->Html->script('jquery.js');
+		}else {
+			echo $this->Html->script("jquery-1.4.1.min.js");
+		}
+		//echo $this->Html->script('jquery.js');
+		//echo $this->Html->script("jquery-1.4.1.min.js");
 		
-		echo $this->Html->script('jquery.js');
 	
 		echo $this->Html->script('jquery.lightbox-0.5.js');
 
@@ -25,10 +33,11 @@
 		echo $this->Html->script('rotador.js');
 		
 		
-		echo $this->Html->script("school-education/jquery-1.4.1.min.js");
-		echo $this->Html->script("school-education/jquery.slidepanel.setup.js");
-		echo $this->Html->script("school-education/jquery.cycle.min.js");
-		echo $this->Html->script("school-education/jquery.cycle.setup.js");
+	
+		
+		echo $this->Html->script("jquery.slidepanel.setup.js");
+		echo $this->Html->script("jquery.cycle.min.js");
+		echo $this->Html->script("jquery.cycle.setup.js");
 
 		echo $scripts_for_layout;
 ?>
@@ -103,11 +112,11 @@
     </div>
     <div id="topnav">
       <ul>
-        <li class="active"><a href="index.html">Inició</a></li>
-        <li><a href="style-demo.html">Misión</a></li>
-        <li><a href="full-width.html">Visión</a></li>
-        <li><a href="#">Quienes somos</a></li>
-        <li class="last"><a href="#">Imagenes</a></li>
+        <li class=""><?php echo $this->Html->link("Inicio", array('controller' => 'noticias','action' => 'index')); ?></li>
+        <li><?php echo $this->Html->link("Misión", array('controller' => 'contents','action' => 'view', 1)); ?></li>
+        <li><?php echo $this->Html->link("Visión", array('controller' => 'contents','action' => 'view', 4)); ?></li>
+        <li><?php echo $this->Html->link("Quienes somos", array('controller' => 'contents','action' => 'view', 3)); ?></li>
+        <li class="last"><?php echo $this->Html->link("Imagenes", array('controller' => 'albums','action' => 'index')); ?></li>
       </ul>
     </div>
     <br class="clear" />

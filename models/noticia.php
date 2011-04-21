@@ -96,7 +96,7 @@ class Noticia extends AppModel {
 		'Comment' => array(
 			'className' => 'Comment',
 			'foreignKey' => 'noticia_id',
-			'dependent' => false,
+			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',

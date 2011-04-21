@@ -3,13 +3,11 @@
 ?>
 
 <div id="content">
-      <h1><?php echo $noticia["Noticia"]["title"] ?></h1>
-      
+      <h2><?php echo $noticia["Noticia"]["title"] ?></h2>
      	 <?php if($noticia['Noticia']['image']) {
 						echo $html->image("/img/noticias/".$noticia['Noticia']['image'], array("class"=>"img_a"));
 					} ?>
-		
-      <p><?php echo $noticia["Noticia"]["content"] ?></p>
+      <?php echo $noticia["Noticia"]["content"] ?>
       
       <div id="comments">
         <h2>Commentarios</h2>

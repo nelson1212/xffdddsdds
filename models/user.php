@@ -112,7 +112,7 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Comment' => array(
+		/*'Comment' => array(
 			'className' => 'Comment',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
@@ -124,7 +124,7 @@ class User extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
+		), */
 		'Noticia' => array(
 			'className' => 'Noticia',
 			'foreignKey' => 'user_id',

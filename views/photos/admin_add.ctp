@@ -1,15 +1,15 @@
 <div class="photos form">
-<?php echo $this->Form->create('Photo', array("type"=>"file"));?>
+<?php echo $this->Form->create('Photo', array("controller"=>"Photos", "action"=>"admin_add","type"=>"file"));?>
 	<fieldset>
  		<legend><?php __('Agregar fotos'); ?></legend>
+ 			
 	<?php
-			//debug($albumID);
-			echo $this->Form->input('foto1', array("label"=>"","type"=>"file"));
-			echo $this->Form->input('foto2', array("label"=>"","type"=>"file"));
-			echo $this->Form->input('foto3', array("label"=>"","type"=>"file"));
-			echo $this->Form->input('foto4', array("label"=>"","type"=>"file"));
-			echo $this->Form->input('foto5', array("label"=>"","type"=>"file"));
-		    echo $this->Form->input('Album.album_id', array('type'=>'hidden', 'value'=>$albumID[0]));
+			echo $this->Form->input('foto1', array("label"=>"Selecciona una foto","type"=>"file"));
+			echo $this->Form->input('foto2', array("label"=>"Selecciona una foto","type"=>"file"));
+			echo $this->Form->input('foto3', array("label"=>"Selecciona una foto","type"=>"file"));
+			echo $this->Form->input('foto4', array("label"=>"Selecciona una foto","type"=>"file"));
+			echo $this->Form->input('foto5', array("label"=>"Selecciona una foto","type"=>"file")); 
+		    echo $this->Form->input('Album.album_id', array('type'=>'hidden', 'value'=>$albumID));
 	?>
 
 	</fieldset>

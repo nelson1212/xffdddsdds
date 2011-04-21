@@ -58,12 +58,12 @@ class CommentsController extends AppController {
 		$this->set(compact('news', 'users', 'albums', 'photos'));
 	}
 
-	function delete($id = null) {
+	function admin_delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for comment', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->Comment->delete($id)) {
+		if ($this->Comment->delete($id, true)) {
 			$this->Session->setFlash(__('Comment deleted', true));
 			$this->redirect(array('action'=>'index'));
 		}

@@ -24,7 +24,7 @@ class PhotosController extends AppController {
 		$this->set(compact('directorio', 'titulo', "albumId"));
 	}
 	
-	function admin_index() 
+	function admin_index($albumId=null) 
 	{
 		//debug($this->params); exit;
 		$this->Photo->recursive = -1;
@@ -50,8 +50,20 @@ class PhotosController extends AppController {
 
 	function admin_add() 
 	{
+		
+		if(empty($this->data)){
+			$albumID = $this->params["pass"][0];
+		} else if(!empty($this->data)){
+			$albumID = $this->data['Album']["album_id"];
+		} 
+			
+		//debug($this->data); 
+		
 		if (!empty($this->data)) 
 		{
+			//debug($this->data); exit;
+			//$albumID = $this->params["pass"][0];
+			
 			$album=$this->data['Album']["album_id"];
 			$photo=array();
 		    $photo['Photo']["album_id"]=$this->data['Album']["album_id"];
@@ -64,11 +76,11 @@ class PhotosController extends AppController {
 					if($this->uploadPicture($valor, $album)==true) {
 						$photo['Photo']["name"]=$this->photoName;
 				
-						$directorio = WWW_ROOT."img/fotos/";
-						$directorio = str_replace("\\", "/", $directorio);
+						$directorio = WWW_ROOT."img".DS."fotos".DS;
+						//$directorio = str_replace("\\", "/", $directorio);
 						
-						$ruta=$directorio.$album."/"; 
-						$imagen=$directorio.$album."/".$this->photoName; 
+						$ruta=$directorio.$album.DS; 
+						$imagen=$directorio.$album.DS.$this->photoName; 
 						//echo "Aqui: ".$this->photoName; exit;
 						
 						
@@ -82,7 +94,7 @@ class PhotosController extends AppController {
 							$photo['Photo']["thumb"]=$this->ImageUploadAndResize->make_thumb($imagen,$ruta,190, 120);
 						}
 					}else {
-						$albumID = $this->data['Album']["album_id"];
+						//$albumID = $this->data['Album']["album_id"];
 						$this->set(compact("albumID"));
 						$this->Session->setFlash(__('No se pueden guardar las fotos, recuerda que los formatos permitidos son: .jpg, .png y .gif', true));
 						return;
@@ -95,12 +107,12 @@ class PhotosController extends AppController {
 			}
 				
 			$this->Session->setFlash(__('Las fotos fueron guardadas', true));
-			$albumID = $this->data['Album']["album_id"];
-			$this->redirect(array('controller'=>'Albums', 'action' => 'index'));
+			//$albumID = $this->data['Album']["album_id"];
+			$this->redirect(array('controller'=>'Albums', 'action' => 'index', $albumID));
 			
 		}else {
 		 	 
-			 $albumID = $this->params["pass"];
+			// $albumID = $this->params["pass"];
 			 //debug($this->params);
 		     $this->set(compact("albumID"));
 			 //$this->Session->setFlash(__('The photo could not be saved. Please, try again.', true));
@@ -128,7 +140,7 @@ class PhotosController extends AppController {
 		$this->set(compact('albums'));
 	}
 
-	function delete($id = null) {
+	function admin_delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for photo', true));
 			$this->redirect(array('action'=>'index'));
@@ -141,27 +153,7 @@ class PhotosController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function galleries($id=null) 
-	{
-	     $user=$this->flickr->people_findByUsername("nelson.hidalgo");
-		 //echo $user['id'];
-		 //print_r($user); exit;
-		$photosets = $this->flickr->photosets_getList($user['id']); 
-		
-		 $this->set('sets', $photosets); 
-		 if(empty($id))
-		 {
-		 	$currset =  $photosets['photoset'][0]['id']; 
-		 }else 
-		 	{
-		 		$currset=$id;
-		 	}
-			//$thumbs=$this->flickr->photosets_getPhotos($currset);
-		//print_r($thumbs);
-		 $this->set('currset', $this->flickr->photosets_getInfo($currset)); 
-		 $this->set('thumbs', $this->flickr->photosets_getPhotos($currset));
-		
-	}
+	
 	
 	//$foto array del archivo
     //nombre_foto es igual al username ya que sera unico
@@ -191,7 +183,7 @@ class PhotosController extends AppController {
 		}
 		
 		//Directorio donde sera guardada la imagen
-		$directorio = WWW_ROOT."img\\fotos\\".$album."\\".$nombre_foto;
+		$directorio = WWW_ROOT."img".DS."fotos".DS.$album.DS.$nombre_foto;
 		
 			//Copiamos la imagen al directorio, especificado
 	   		if (copy($foto["tmp_name"], $directorio)) {

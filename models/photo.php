@@ -61,7 +61,7 @@ class Photo extends AppModel {
 			'order' => ''
 		)
 	);
-
+/*
 	var $hasMany = array(
 		'Comment' => array(
 			'className' => 'Comment',
@@ -77,6 +77,6 @@ class Photo extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
+ */
 }
 ?>

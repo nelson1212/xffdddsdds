@@ -2,9 +2,9 @@
 
 class AppController extends Controller {
 		
-	var $components=array("Session","Auth");	
+	public $components=array("Session","Auth");	
 
-
+	
 	function beforeFilter()
 	{
 		$this->Auth->loginError = "Nombre de usuario o contraseña incorrectos";
@@ -17,5 +17,10 @@ class AppController extends Controller {
 	}	
 	
 	
+	 public function isAuthorized() {
+            return true;
+      }
+	 
+	 
 
 }

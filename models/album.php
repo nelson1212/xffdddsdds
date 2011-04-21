@@ -47,7 +47,7 @@ class Album extends AppModel {
 	);
 
 	var $hasMany = array(
-		'Comment' => array(
+		/*'Comment' => array(
 			'className' => 'Comment',
 			'foreignKey' => 'album_id',
 			'dependent' => false,
@@ -59,11 +59,11 @@ class Album extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
+		), */
 		'Photo' => array(
 			'className' => 'Photo',
 			'foreignKey' => 'album_id',
-			'dependent' => false,
+			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',

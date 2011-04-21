@@ -3,6 +3,7 @@ class NoticiasController extends AppController {
 
 	var $name = 'Noticias';
 	var $components =array("ImageUploadAndResize");
+	var $helpers = array("Javascript");
 	private $nombreFoto="";
 	
 	function index() {
@@ -205,14 +206,14 @@ class NoticiasController extends AppController {
 
 	function admin_delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for noticia', true));
+			$this->Session->setFlash(__('Noticia invalida', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Noticia->delete($id)) {
-			$this->Session->setFlash(__('Noticia deleted', true));
+			$this->Session->setFlash(__('Noticia borrada', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Noticia was not deleted', true));
+		$this->Session->setFlash(__('La noticia no fue borrada', true));
 		$this->redirect(array('action' => 'index'));
 	}
 	
