@@ -20,41 +20,42 @@
 				<div class="submitdate">Fecha: <?php echo $noticia["Comment"][$i]["created"]; ?></div>
 			</li>
 		
-          <?php } ?>
-          
-          
-          
+          <?php } ?>          
         </ul>
       </div>
       <br class="clear">
       
       
-      <h2>Write A Comment</h2>
+      <h2>Escribe un comentario</h2>
       <div id="respond">
-        <form method="post" action="#">
-          <p>
-           <?php echo $this->Form->input('nombre', array("label"=>"Tu nombre")); ?>
-            
-          </p>
-          <p>
-            <?php echo $this->Form->input('correo', array("label"=>"Tu email")); ?>
-            
-          </p>
-          
-          <p>
-            <?php echo $this->Form->input('correo', array("label"=>"Tu email")); ?>
-           
-          </p>
-          <p>
-            <textarea rows="10" cols="100%" id="comment" name="comment"></textarea>
-            <label style="display:none;" for="comment"><small>Comment (required)</small></label>
-          </p>
-          <p>
-            <input type="submit" value="Submit Form" id="submit" name="submit">
-            &nbsp;
-            <input type="reset" value="Reset Form" tabindex="5" id="reset" name="reset">
-          </p>
-        </form>
+      <?php echo $this->Form->create('Comment', array("controller"=>"comments", "action"=>"add"));?>
+			<?php
+			echo $this->Form->input('noticia_id', array("type"=>"hidden", "value"=>$noticia["Noticia"]["id"]));
+			?>
+			 <p>
+	            <input type="text" name="data[Comment][nombre]" id="name" value="" size="22" />
+	            <label for="name"><small>Tu Nombre (requerido)</small></label>
+          	</p>
+          	<p>
+	            <input type="text" name="data[Comment][correo]"id="email" value="" size="22" />
+	            <label for="email"><small>Tu Email (requerido)</small></label>
+         	 </p>
+         	 	<p>
+	            <input type="text" name="data[Comment][web]" id="web" value="" size="22" />
+	            <label for="web"><small>Tu Web (opcional)</small></label>
+         	 </p>
+         	 
+			<?php
+				echo $this->Form->textarea('comment', array("cols"=>'100%',"rows"=>10, "label"=>"Comentario"));
+				echo "<br/>";
+				echo "<br/>";
+				echo $this->Form->input('recibir_comentarios', array("type"=>"checkbox","label"=>"Recibir comentarios de esta noticia"));
+				echo $this->Form->input('recibir_email', array("type"=>"checkbox","label"=>"Recibir noticias en tu correo"));
+			?>
+		 <br/>
+	<?php echo $this->Form->end(__('Publicar comentario', true));?>	
+		<br/>
+       
       </div>
     </div>
     

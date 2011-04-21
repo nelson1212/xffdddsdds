@@ -58,16 +58,16 @@ class CommentsController extends AppController {
 		$this->set(compact('news', 'users', 'albums', 'photos'));
 	}
 
-	function admin_delete($id = null) {
+	function admin_delete($id = null, $noticia=null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for comment', true));
+			$this->Session->setFlash(__('Comentario invalido', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Comment->delete($id, true)) {
-			$this->Session->setFlash(__('Comment deleted', true));
-			$this->redirect(array('action'=>'index'));
+			$this->Session->setFlash(__('Comenario borrado', true));
+			$this->redirect(array('action'=>'admin_view', "controller"=>"Noticias", $noticia));
 		}
-		$this->Session->setFlash(__('Comment was not deleted', true));
+		$this->Session->setFlash(__('El comentario no fue borrado', true));
 		$this->redirect(array('action' => 'index'));
 	}
 }

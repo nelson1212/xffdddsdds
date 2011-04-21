@@ -89,9 +89,16 @@ class AlbumsController extends AppController {
 			//$this->Album->Photo->delete()
 			//debug($photos); exit;
 		}
-
+		//echo $this->delete_folder("img/fotos/7");
+		
+		//exit;
 		
 		if ($this->Album->delete($id, true)) {
+			
+			if(file_exists("img/fotos/".$id)){
+				$this->delete_folder("img/fotos/".$id);
+			}
+			
 			$this->Session->setFlash(__('Album borrado', true));
 			$this->redirect(array('action'=>'index'));
 		}
@@ -99,9 +106,30 @@ class AlbumsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function lastAlbums()
-	{
-		//$albums=$this-Album->find("all", array())
+	function delete_folder($tmp_path){ 
+	  if(!is_writeable($tmp_path) && is_dir($tmp_path)){chmod($tmp_path,0777);} 
+	    $handle = opendir($tmp_path); 
+	  while($tmp=readdir($handle)){ 
+	    if($tmp!='..' && $tmp!='.' && $tmp!=''){ 
+	         if(is_writeable($tmp_path.DS.$tmp) && is_file($tmp_path.DS.$tmp)){ 
+	                 unlink($tmp_path.DS.$tmp); 
+	         }elseif(!is_writeable($tmp_path.DS.$tmp) && is_file($tmp_path.DS.$tmp)){ 
+	             chmod($tmp_path.DS.$tmp,0666); 
+	             unlink($tmp_path.DS.$tmp); 
+	         } 
+	         
+	         if(is_writeable($tmp_path.DS.$tmp) && is_dir($tmp_path.DS.$tmp)){ 
+	                delete_folder($tmp_path.DS.$tmp); 
+	         }elseif(!is_writeable($tmp_path.DS.$tmp) && is_dir($tmp_path.DS.$tmp)){ 
+	                chmod($tmp_path.DS.$tmp,0777); 
+	                delete_folder($tmp_path.DS.$tmp); 
+	         } 
+	    } 
+	  } 
+	  closedir($handle); 
+	  rmdir($tmp_path); 
+	  if(!is_dir($tmp_path)){return true;} 
+	  else{return false;} 
 	}
 }
 ?>

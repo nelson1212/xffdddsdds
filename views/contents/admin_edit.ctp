@@ -2,7 +2,7 @@
 <div class="contents form">
 <?php echo $this->Form->create('Content');?>
 	<fieldset>
-		<legend><?php __('Admin Edit Content'); ?></legend>
+		<legend><?php __('Editar Contenido'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('user_id');

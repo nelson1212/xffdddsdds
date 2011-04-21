@@ -1,9 +1,0 @@
-/* CSS para impresion */
-
-body {
-	display: block !important;
-}
-
-#branding, #nav, #content-sub, #content-sup, #siteinfo {
-	display: none;
-}

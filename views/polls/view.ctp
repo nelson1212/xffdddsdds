@@ -9,17 +9,14 @@
 		</dd>
 	-->
 		
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Creador'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($poll['User']['email'], array('controller' => 'users', 'action' => 'view', $poll['User']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Pregunta'); ?></dt>
+		
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('<h3>Pregunta</h3>'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $poll['Poll']['question']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Fecha creación'); ?></dt>
+		<br>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('<h3>Fecha creación</h3>'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $poll['Poll']['created']; ?>
 			&nbsp;
@@ -36,6 +33,7 @@
 	</dl>
 <br>
 	<div class="encuesta">
+		<h2>Opciones</h2>
 		<?php 
 			for($i=0;$i<=count($resultado)-1; $i++){
 				echo "<h3>".$resultado[$i]['pregunta']."</h3>";
@@ -48,7 +46,7 @@
 				echo "</br>";
 			}
 		?>
-		<b>Numero total de votos: <?php echo $total_votos; ?></b>
+		<h3><b>Numero total de votos: <?php echo $total_votos; ?></b></h3>
 	</div>
 </div>
 

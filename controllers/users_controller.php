@@ -42,7 +42,7 @@ class UsersController extends AppController {
 	}
 
 	
-	function index() {	
+	function admin_index() {	
 	   	
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
@@ -56,7 +56,7 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->read(null, $id));
 	}
 
-	function add() {
+	function admin_add() {
 		$password="";
 		
 		
@@ -113,10 +113,6 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	function admin_index() {
-		$this->User->recursive = 0;
-		$this->set('users', $this->paginate());
-	}
 
 	function admin_view($id = null) {
 		if (!$id) {
@@ -126,19 +122,7 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->read(null, $id));
 	}
 
-	function admin_add() {
-		if (!empty($this->data)) {
-			$this->User->create();
-			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(__('The user has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
-			}
-		}
-		$roles = $this->User->Role->find('list');
-		$this->set(compact('roles'));
-	}
+
 
 	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {

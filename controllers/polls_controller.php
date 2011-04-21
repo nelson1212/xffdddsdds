@@ -37,7 +37,7 @@ class PollsController extends AppController {
 
 	function add() {
 		
-			debug($this->data);
+		
 		if (!empty($this->data)) {
 		
 			

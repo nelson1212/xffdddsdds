@@ -513,17 +513,7 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 	
 }
 
-.fotos img
-{
-	padding: 10px;
-	margin: 10px 12px 12px 12px;
-	border:solid 1px #DEDEDE; 
-	background:#EFEFEF;
-	float: left;
-	text-align: justify;
 
-	
-}
 
 .cuadro_paginacion
 {
@@ -535,4 +525,16 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 	width: 98%;
 	text-align: justify;
 
+}
+
+.fotos img
+{
+	padding: 10px;
+	margin: 10px 12px 12px 12px;
+	border:solid 1px #DEDEDE; 
+	background:#EFEFEF;
+	float: left;
+
+
+	
 }

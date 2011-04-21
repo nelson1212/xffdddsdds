@@ -154,7 +154,9 @@
   <div id="homecontent">
     <div class="fl_left">
     	
-    	<?php if($this->params["url"]["url"]=="noticias") { ?>
+    	<?php 
+    	//debug($this->params);
+    	if($this->params["url"]["url"]=="/" or isset($this->params["named"]["page"])==1 && isset($this->params["controller"])!="Photos") { ?>
       <div class="column2">
         <ul>
           <li>

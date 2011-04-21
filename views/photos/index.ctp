@@ -2,8 +2,9 @@
 	<h2><?php  echo 'Album '.$titulo ;?></h2>
    <?php 
 	if(empty($photos)){
-		echo "Este album no posee fotos, agrega algunas ";
-		echo $this->Html->link(__('Agregar fotos', true), array("controller"=>"photos", 'action' => 'add', $albumId));
+		echo "Este album no posee fotos";
+		echo "</div>";
+		echo "<br>";
 		return;
 	}
 	?>

@@ -35,14 +35,18 @@ class QuestionsController extends AppController {
 	{
 		if (!empty($this->data)) {
 				
-			$id=$this->data["Question"]["question"];	
-			$num_opcion=$this->Question->query("select num_votos from questions where id='$id'");
-			$num_opcion=$num_opcion[0]["questions"]["question"];
-			$num_opcion++;
+			//debug($this->data); exit;
 			
-			$this->Question->query("update questions set num_votos='$num_opcion' where id='$id'");
+			$id=$this->data["Question"]["question"];	
+			$num_opcion=$this->Question->query("select num_votos from questions where id=".$id);
+			//debug($num_opcion); exit;
+			$num_opcion=$num_opcion[0]["questions"]["num_votos"];
+			$num_opcion=$num_opcion+1;
+			//echo $num_opcion; exit;
+			
+			$this->Question->query("update questions set num_votos=".$num_opcion." where id=".$id);
 		
-			if ($this->Question->query("update questions set num_votos='$num_opcion' where id='$id'")==1) {
+			if ($this->Question->query("update questions set num_votos=".$num_opcion." where id=".$id)==1) {
 				$this->Session->setFlash(__('La opción fue guardada correctamente', true));
 				$this->redirect(array('action' => 'view', 'controller'=>"polls", $this->data["Question"]["poll_id"]));
 			} else {

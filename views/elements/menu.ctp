@@ -17,7 +17,7 @@
 									array('controller' => 'noticias', 'action' => 'index'));
 			echo "<br>";
 									
-			echo $this->Html->link(__(('- Nueva categoria'), true), 
+			echo $this->Html->link(__(('- Agregar categoria'), true), 
 									array('controller' => 'categories', 'action' => 'add'));
 			echo "<br>";					
 									

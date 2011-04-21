@@ -190,10 +190,10 @@ class NoticiasController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->Noticia->save($this->data)) {
-				$this->Session->setFlash(__('The noticia has been saved', true));
+				$this->Session->setFlash(__('LA noticia fue guardada', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The noticia could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('La noticia no pudo ser guardada. Intenta de nuevo.', true));
 			}
 		}
 		if (empty($this->data)) {
