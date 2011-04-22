@@ -2,7 +2,23 @@
 class CategoriesController extends AppController {
 
 	var $name = 'Categories';
-
+	var $components =array('Auth'=>array("redirect"=>false));
+	
+	function beforeFilter(){
+		$this->Auth->autoRedirect=false;
+		$rol=$this->Session->read("Auth.User.role_id");
+		
+		if($rol==2){
+			$this->Auth->allow("index");	
+		}else if ($rol==1) {
+			$this->Auth->allow("*");
+		}else {
+			$this->Auth->allow("index");
+		}	
+	}
+	
+		
+		
 	function index() {
 		$this->Category->recursive = 0;
 		$this->set('categories', $this->paginate());

@@ -29,6 +29,10 @@
  * @subpackage    cake.cake.libs.controller
  */
 class PagesController extends AppController {
+	
+	
+
+
 
 /**
  * Controller name

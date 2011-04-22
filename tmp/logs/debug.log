@@ -3989,3 +3989,6 @@
 2011-04-21 23:55:56 Debug: Notice (8): Undefined index: page in [D:\xampp\htdocs\efir2011\views\layouts\index.ctp, line 159]
 2011-04-21 23:56:09 Debug: Notice (8): Undefined index: page in [D:\xampp\htdocs\efir2011\views\layouts\index.ctp, line 159]
 2011-04-21 23:57:08 Debug: Notice (8): Undefined index: page in [D:\xampp\htdocs\efir2011\views\layouts\index.ctp, line 159]
+2011-04-22 02:30:27 Debug: Notice (8): Undefined property: UsersController::$Session in [D:\xampp\htdocs\efir2011\controllers\users_controller.php, line 37]
+2011-04-22 02:47:54 Debug: Notice (8): Undefined property: AlbumsController::$Auth in [D:\xampp\htdocs\efir2011\controllers\albums_controller.php, line 8]
+2011-04-22 02:50:15 Debug: Notice (8): Undefined property: ContentsController::$Auth in [D:\xampp\htdocs\efir2011\controllers\contents_controller.php, line 8]

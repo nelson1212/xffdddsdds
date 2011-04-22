@@ -2,14 +2,23 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
-	var $components=array("Auth");
 	
 	
-	function beforeRender()
-	{
-	    
+	var $components =array("ImageUploadAndResize",'Auth'=>array("redirect"=>false));
+    //var $uses = array('Photo','Album');
+	//var $components =array('Auth'=>array("redirect"=>false));
+	
+	function beforeFilter(){
+		$this->Auth->autoRedirect=false;
+		$rol=$this->Session->read("Auth.User.role_id");
 		
+		if($rol==2){
+			$this->Auth->allow("index");	
+		}else if ($rol==1) {
+			$this->Auth->allow("*");
+		}	
 	}
+	
 	
 	public function login()
 	{
@@ -36,8 +45,9 @@ class UsersController extends AppController {
 		}*/
 	}
 	
-	public function logout()
+	function logout()
 	{
+		$this->Session->destroy();
 		$this->redirect($this->Auth->logout());
 	}
 

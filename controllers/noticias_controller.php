@@ -2,9 +2,23 @@
 class NoticiasController extends AppController {
 
 	var $name = 'Noticias';
-	var $components =array("ImageUploadAndResize");
+	var $components =array("ImageUploadAndResize", 'Auth'=>array("redirect"=>false));
 	var $helpers = array("Javascript");
 	private $nombreFoto="";
+	
+	 function beforeFilter()
+	{
+		$this->Auth->autoRedirect=false;
+		$rol=$this->Session->read("Auth.User.role_id");
+		
+		if($rol==2){
+			$this->Auth->allow("index");	
+		}else if ($rol==1) {
+			$this->Auth->allow("*");
+		}else {
+			$this->Auth->allow("index","leerMas");
+		}
+	}
 	
 	function index() {
 	   $this->layout="index";

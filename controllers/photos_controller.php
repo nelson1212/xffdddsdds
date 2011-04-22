@@ -4,9 +4,23 @@ class PhotosController extends AppController {
 	var $name = 'Photos';
 	var $helpers=array('Javascript');
 	var $photoName="";
-    var $components =array("ImageUploadAndResize");
+    var $components =array("ImageUploadAndResize",'Auth'=>array("redirect"=>false));
     //var $uses = array('Photo','Album');
-
+	//var $components =array('Auth'=>array("redirect"=>false));
+	
+	function beforeFilter(){
+		$this->Auth->autoRedirect=false;
+		$rol=$this->Session->read("Auth.User.role_id");
+		
+		if($rol==2){
+			$this->Auth->allow("index");	
+		}else if ($rol==1) {
+			$this->Auth->allow("*");
+		}else {
+			$this->Auth->allow("index");
+		}	
+	}
+	
 	function index() 
 	{
 		//debug($this->params); exit;

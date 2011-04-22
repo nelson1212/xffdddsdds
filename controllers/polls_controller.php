@@ -2,7 +2,12 @@
 class PollsController extends AppController {
 
 	var $name = 'Polls';
+	var $components=array("Auth");
 
+	function beforeFilter(){
+		$this->Auth->allow("view");
+	}
+	
 	function index() {
 		$this->Poll->recursive = 0;
 		$this->set('polls', $this->paginate());

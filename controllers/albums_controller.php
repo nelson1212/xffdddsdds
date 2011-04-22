@@ -2,10 +2,23 @@
 class AlbumsController extends AppController {
 
 	var $name = 'Albums';
-	//var $components = array('Flickr'); 
+	var $components = array('Auth'=>array("redirect"=>false)); 
+	
 	function beforeFilter()
 	{
-		$this->Auth->allow("index", "add");
+		
+		$this->Auth->autoRedirect=false;
+		$rol=$this->Session->read("Auth.User.role_id");
+		
+		if($rol==2){
+			$this->Auth->allow("index");	
+		}else if ($rol==1) {
+			$this->Auth->allow("*");
+		}else {
+			$this->Auth->allow("index");
+		}	
+		
+		
 	}
 	
 	function index() {
